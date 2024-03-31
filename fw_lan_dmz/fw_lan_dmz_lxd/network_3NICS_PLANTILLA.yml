@@ -1,0 +1,31 @@
+version: 1
+config:
+  - type: physical
+    name: eth0
+    subnets:
+      - type: static
+        ipv4: true
+        address: XXXX
+        netmask: YYYY
+        gateway: ZZZZ
+        control: auto
+  - type: physical
+    name: eth1
+    subnets:    
+      - type: static
+        ipv4: true
+        address: WWWW
+        netmask: VVVV
+        control: auto
+  - type: physical
+    name: eth2
+    subnets:    
+      - type: static
+        ipv4: true
+        address: AAAA
+        netmask: BBBB
+        control: auto
+  - type: nameserver
+    address:
+      - 8.8.8.8
+      - 8.8.4.4

@@ -1,0 +1,13 @@
+config:
+  environment.TZ: Europe/Madrid
+description: Perfil DMZ
+devices:
+  eth0:
+    name: eth0
+    network: dmz
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: DMZ

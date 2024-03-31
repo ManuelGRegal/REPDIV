@@ -1,0 +1,21 @@
+config:
+  environment.TZ: Europe/Madrid
+description: Profile con 3 interfaces de red wan-lan-dmz
+devices:
+  eth0:
+    name: eth0
+    network: wan
+    type: nic
+  eth1:
+    name: eth1
+    network: lan
+    type: nic
+  eth2:
+    name: eth2
+    network: dmz
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: WAN-LAN-DMZ

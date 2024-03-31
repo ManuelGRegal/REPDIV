@@ -1,0 +1,19 @@
+config:
+  environment.TZ: Europe/Madrid
+description: Perfil WAN-LAN
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: wan
+    type: nic
+  eth1:
+    name: eth1
+    nictype: bridged
+    parent: lan
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: WAN-LAN

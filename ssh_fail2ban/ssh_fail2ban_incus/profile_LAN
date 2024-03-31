@@ -1,0 +1,13 @@
+config:
+  environment.TZ: Europe/Madrid
+description: Perfil LAN
+devices:
+  eth0:
+    name: eth0
+    network: lan
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: LAN

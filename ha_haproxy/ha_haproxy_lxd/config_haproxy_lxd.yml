@@ -1,0 +1,46 @@
+#cloud-config
+# Configurar /etc/hostname e /etc/hosts
+hostname: haproxy
+fqdn: haproxy.fpinnova.example
+manage_etc_hosts: true
+# Usuario
+users:
+  - default
+  - name: magasix
+    lock_passwd: false
+    passwd: $y$j9T$ww80Jq/hcuhChau8w3Poe0$AuTOsqM0BL5Q3ltgrBaSGqLANZofUcOJuAMw3rdXNn6
+#    ssh-authorized-keys:
+#      - clave pública asociada a la clave privada para acceder por SSH
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+system_info:
+  default_user:
+    name: ubuntu
+    gecos: Usuario por defecto
+    plain_text_passwd: abc123.
+    lock_passwd: false
+# Habilitar PasswordAuthentication
+ssh_pwauth: True
+# Configurar caché de paquetes para acelerar instalación
+#write_files:
+#  - path: /etc/apt/apt.conf.d/01apt-cacher-ng
+#    content: |
+#      Acquire::http { Proxy "http://dir_IP-cache:puerto_cache"; }
+# Conservar repositorios e instalar paquetes
+apt:
+  preserve_sources_list: true
+# Actualizar sistema
+package_upgrade: true
+# Ejecutar comandos en el primer arranque
+runcmd:
+  - sed -i "s%#PermitRootLogin prohibit-password%PermitRootLogin no%g" /etc/ssh/sshd_config
+#  - sed -i "s%#PasswordAuthentication yes%PasswordAuthentication yes%g" /etc/ssh/sshd_config
+  - sed -i "3iUseDNS no" /etc/ssh/sshd_config
+  - systemctl restart sshd
+# Zona horaria y locale
+timezone: Europe/Madrid
+locale: es_ES.UTF-8
+# reinicio al acabar
+#power_state:
+#  mode: reboot

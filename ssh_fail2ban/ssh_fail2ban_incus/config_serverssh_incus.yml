@@ -1,0 +1,64 @@
+#cloud-config
+# Configurar /etc/hostname e /etc/hosts
+hostname: serverssh
+fqdn: serverssh.fpinnova.example
+manage_etc_hosts: true
+# Usuario
+users:
+  - default
+  - name: magasix
+    lock_passwd: false
+    passwd: $y$j9T$ww80Jq/hcuhChau8w3Poe0$AuTOsqM0BL5Q3ltgrBaSGqLANZofUcOJuAMw3rdXNn6
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+  - name: asir01
+    lock_passwd: false
+    passwd: $y$j9T$mmnakWVEtPpYnlSw2jqIp1$djiO7DtEMPV.wDGg8xMVgKqT7niho2AbyMxrgrDLon.
+    shell: /bin/bash
+  - name: asir02
+    lock_passwd: false
+    passwd: $y$j9T$Y4gatensskaIwIBCXC7z81$ilghypjYgFDfbZVEjlchdWYZSBT.i2nox9ywpK/UzN1
+    shell: /bin/bash
+  - name: asir03
+    lock_passwd: false
+    passwd: $y$j9T$Nt/wyzyGJ4rYO6uECxwyp/$joXhCUQfNmBxZwDCAqTo5wXkOi8ug.VUY7nAamkj.l7
+    shell: /bin/bash
+  - name: asir04
+    lock_passwd: false
+    passwd: $y$j9T$/BFNi4MEq8BhTmbHJhj6n.$Fo7H7DwR73B/5ie6NagwpixzMpta8xeXtfQJ2TX4pT7
+    shell: /bin/bash
+system_info:
+  default_user:
+    name: ubuntu
+    gecos: Usuario por defecto
+    plain_text_passwd: abc123.
+    lock_passwd: false
+# Configurar caché de paquetes para acelerar instalación
+#write_files:
+#  - path: /etc/apt/apt.conf.d/01apt-cacher-ng
+#    content: |
+#      Acquire::http { Proxy "dir_IP_cache:puerto_cache"; }
+# Conservar repositorios e instalar paquetes
+apt:
+  preserve_sources_list: true
+  sources:
+    source1:
+      source: ppa:ondrej/php
+# Actualizar sistema
+package_upgrade: true
+packages:
+  - bash-completion
+  - openssh-server
+# Ejecutar comandos el el primer arranque
+runcmd:
+  - sed -i "s%#PermitRootLogin prohibit-password%PermitRootLogin no%g" /etc/ssh/sshd_config
+  - sed -i "s%#PasswordAuthentication yes%PasswordAuthentication yes%g" /etc/ssh/sshd_config
+  - sed -i "3iUseDNS no" /etc/ssh/sshd_config
+  - systemctl restart sshd
+# Zona horaria y locale
+timezone: Europe/Madrid
+locale: es_ES.UTF-8
+# reinicio al acabar
+#power_state:
+#  mode: reboot

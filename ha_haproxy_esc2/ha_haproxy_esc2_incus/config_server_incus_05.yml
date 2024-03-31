@@ -1,0 +1,84 @@
+#cloud-config
+# Configurar /etc/hostname e /etc/hosts
+hostname: haproxy-php-05
+fqdn: haproxy-php-05.fpinnova.example
+manage_etc_hosts: true
+# Usuario
+users:
+  - default
+  - name: magasix
+    lock_passwd: false
+    passwd: $y$j9T$ww80Jq/hcuhChau8w3Poe0$AuTOsqM0BL5Q3ltgrBaSGqLANZofUcOJuAMw3rdXNn6
+#    ssh-authorized-keys:
+#      - clave pública asociada a la clave privada para acceder por SSH
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+system_info:
+  default_user:
+    name: ubuntu
+    gecos: Usuario por defecto
+    plain_text_passwd: abc123.
+    lock_passwd: false
+# Configurar caché de paquetes para acelerar instalación
+#write_files:
+#  - path: /etc/apt/apt.conf.d/01apt-cacher-ng
+#    content: |
+#      Acquire::http { Proxy "http://dir_IP_cache:puerto_cache"; }
+# Conservar repositorios e instalar paquetes
+write_files:
+  - path: /etc/apache2/sites-available/www.web3.example.conf
+    content: |
+      <VirtualHost *:80>
+        ServerName www.web3.example
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/www.web3.example
+        ErrorLog ${APACHE_LOG_DIR}/www.web3.example_error.log
+        CustomLog ${APACHE_LOG_DIR}/www.web3.example_access.log combined
+      </VirtualHost>
+apt:
+  preserve_sources_list: true
+  sources:
+    source1:
+      source: ppa:ondrej/php
+# Actualizar sistema
+#package_upgrade: true
+packages:
+  - net-tools
+  - apache2
+  - php
+  - php-cli
+  - php-common
+  - libapache2-mod-php
+  - php-gd
+  - php-curl
+  - php-mbstring
+  - php-xmlrpc
+  - php-soap
+  - php-xml
+  - php-intl
+  - php-mysql
+  - php-zip
+  - mysql-client
+  - bash-completion
+  - openssh-server
+# Ejecutar comandos el el primer arranque
+runcmd:
+  - sed -i "s%#PermitRootLogin prohibit-password%PermitRootLogin no%g" /etc/ssh/sshd_config
+  - sed -i "s%#PasswordAuthentication yes%PasswordAuthentication yes%g" /etc/ssh/sshd_config
+  - sed -i "3iUseDNS no" /etc/ssh/sshd_config
+  - a2enmod ssl
+  - a2ensite default-ssl.conf
+  - a2ensite www.web3.example.conf  
+  - echo '<?php phpinfo(); ?>' > /var/www/html/info.php
+  - echo 'OK' > /var/www/html/test.html
+  - mkdir -p /var/www/www.web3.example/blog/
+  - echo '<?php echo "<html><head><title>Sitio web en ${_SERVER["SERVER_ADDR"]}</title></head><body><h1>Mi BLOG</h1>Est&aacute;s en ${_SERVER["SERVER_ADDR"]}</body></html>";?>'  > /var/www/www.web3.example/blog/index.php  
+  - systemctl restart sshd
+  - systemctl restart apache2
+# Zona horaria y locale
+timezone: Europe/Madrid
+locale: es_ES.UTF-8
+# reinicio al acabar
+#power_state:
+#  mode: reboot
