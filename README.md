@@ -17,14 +17,14 @@ Escenarios prácticos disponibles:
 
 - **[web](./web)**: infraestructura formada por un servidor web corriendo Apache con PHP.
 - **[lamp](./lamp)**: infraestructura formada por un servidor web corriendo jun sistema LAMP: Linux-Apache-PHP-MySQL. 
-- **[web-db](./web-db)**: infraestructura formada por un servidor web Apache+PHP y un servidor de base de datos MySQL.
-- **[cluster-web](./cluster-web)**: infraestructura formada un conjunto de servidores web idénticos corriendo Apache+PHP.
-- **[ssh-fail2ban](./ssh-fail2ban)**: infraestructura formada por un servidor corriendo SSH y un equipo atacante para probar ataques de fuerza bruta y securización mediante el uso de [fail2ban](https://github.com/fail2ban/fail2ban).
-- **[fw-lan](./fw-lan)**: infraestructura formada por un firewall de red que controla el tráfico de una organización pequeña, donde tiene que controlar el tráfico de salida de los equipos de los trabajadores y el tráfico entrante a un servidor.
-- **[fw-lan-dmz](./fw-lan-dmz)**: infraestructura formada por un firewall de red que controla el tráfico de una organización, donde tiene que controlar el tráfico de salida de una LAN donde se ubican los equipos de los trabajadores y de una red DMZ donde se ubican servicios accesibles desde Internet.
-- **[ha-lvs](./ha-lvs)**: infraestructura formada por un servidor que actuará como balanceador usando [LVS](http://www.linuxvirtualserver.org/whatis.html) en modo LVS-NAT y un cluster de 5 servidores web que dan servicio a dos sitios web. 
-- **[ha-proxy](./ha-proxy)**: infraestructura formada por un servidor que actuará como balanceador usando [HAProxy](https://www.haproxy.org/) configurado como balanceador L7 y un cluster de 5 servidores web que dan servicio a dos sitios web. 
-- **[ha-proxy-esc2](./ha-proxy-esc2)**: infraestructura formada por un servidor que actuará como balanceador usando [HAProxy](https://www.haproxy.org/) configurado como balanceador L7 y un cluster de 5 servidores web que dan servicio a tres sitios web y donde se las peticiones a un sitio web se redirigen en función de la URL solicitada por el cliente.
+- **[web_db](./web_db)**: infraestructura formada por un servidor web Apache+PHP y un servidor de base de datos MySQL.
+- **[cluster_web](./cluster_web)**: infraestructura formada un conjunto de servidores web idénticos corriendo Apache+PHP.
+- **[ssh_fail2ban](./ssh_fail2ban)**: infraestructura formada por un servidor corriendo SSH y un equipo atacante para probar ataques de fuerza bruta y securización mediante el uso de [fail2ban](https://github.com/fail2ban/fail2ban).
+- **[fw_lan](./fw_lan)**: infraestructura formada por un firewall de red que controla el tráfico de una organización pequeña, donde tiene que controlar el tráfico de salida de los equipos de los trabajadores y el tráfico entrante a un servidor.
+- **[fw_lan_dmz](./fw_lan_dmz)**: infraestructura formada por un firewall de red que controla el tráfico de una organización, donde tiene que controlar el tráfico de salida de una LAN donde se ubican los equipos de los trabajadores y de una red DMZ donde se ubican servicios accesibles desde Internet.
+- **[ha_lvs](./ha_lvs)**: infraestructura formada por un servidor que actuará como balanceador usando [LVS](http://www.linuxvirtualserver.org/whatis.html) en modo LVS-NAT y un cluster de 5 servidores web que dan servicio a dos sitios web. 
+- **[ha_proxy](./ha_proxy)**: infraestructura formada por un servidor que actuará como balanceador usando [HAProxy](https://www.haproxy.org/) configurado como balanceador L7 y un cluster de 5 servidores web que dan servicio a dos sitios web. 
+- **[ha_proxy_esc2](./ha_proxy_esc2)**: infraestructura formada por un servidor que actuará como balanceador usando [HAProxy](https://www.haproxy.org/) configurado como balanceador L7 y un cluster de 5 servidores web que dan servicio a tres sitios web y donde se las peticiones a un sitio web se redirigen en función de la URL solicitada por el cliente.
 - **[GOAD](./GOAD)**: información relativa al despliegue y ejercicios de red team y blue team en el entorno de Active Directory Vulnerable [GOAD](https://github.com/Orange-Cyberdefense/GOAD).
 
 ---
