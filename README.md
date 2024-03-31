@@ -15,6 +15,7 @@ Se pueden encontrar infraestructuras para desplegar usando VirtualBox con [Vagra
 A modo de ejemplo se puede ver uno de los escenarios prácticos a desplegar y cómo se realiza su despliegue usando contenedores:
 <img class="w-100 mx-auto d-block" style="max-width: 250px;padding: 5px;" src="./ha_haproxy_esc2/imagenes/ha_haproxy_esc2_lxd_incus.svg" />
 [![asciicast](https://asciinema.org/a/649892.svg)](https://asciinema.org/a/649892)
+
 Escenarios prácticos disponibles:
 
 - **[web](./web)**: infraestructura formada por un servidor web corriendo Apache con PHP.
