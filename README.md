@@ -1,4 +1,4 @@
-# Retos de ciberseguridade
+# Repositorio de escenarios prácticos para despliegue de infraestructuras en virtualización, contenedores, cloud computing y ejercicios de Red Team y Blue Team
 
 <p align="justify">Bienvenido/a al repositorio del proyecto <i>Repositorio de escenarios prácticos para despregue de infraestruturas en virtualización, contedores, cloud computing e exercicios de Red Team e Blue Team</i> que resultó premiado na <i>Resolución do 12 de maio de 2023 da Dirección Xeral de Formación Profesional pola que se resolven os premios para o desenvolvemento de proxectos de innovación tecnolóxica ou científica e proxectos de innovación didáctica no ámbito da Formación Profesional en centros públicos dependentes da Consellería de Cultura, Educación, Formación Profesional e Universidades convocados na resolución do 23 de xaneiro de 2023</i>.</p>
 
