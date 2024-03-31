@@ -44,4 +44,4 @@ Escenarios prácticos disponibles:
 </tr>
 </table>
       <p> </p>
-      <h6>Actividade desenvolvida dentro do proxecto "Plataforma de retos de ciberseguridade. A gamificación no proceso de adquisición de competencias no ámbito da ciberseguridade", financiado na convocatoria de premios para o desenvolvemento de proxectos de innovación na FP do ano 2022.</h6>
+      <h6>Actividade desenvolvida dentro do proxecto "Repositorio de escenarios prácticos para despregue de infraestruturas en virtualización, contedores, cloud computing e exercicios de Red Team e Blue Team", financiado na convocatoria de premios para o desenvolvemento de proxectos de innovación na FP do ano 2023 - Consellería de Cultura, Educación, Formación Profesional e Universidades - Xunta de Galicia.</h6>
